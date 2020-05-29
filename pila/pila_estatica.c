@@ -3,9 +3,9 @@ include "pila_estatica.h"
 
 
 /*
-                 libre┐        tipo de dato┐  ┌dato
-    p->pila           │                    │  │                  MAX
-          └> ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░███░███░███░███░███░███░███░███ <┘
+                 libre┐           tipo de dato┐      ┌dato
+    p->pila           │                       │      │             MAX
+          └> ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░████░████░████░████░████░████░████ <┘
                                │
                         p->tope┘
 
