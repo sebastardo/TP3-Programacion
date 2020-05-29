@@ -1,4 +1,4 @@
-#include "pila_estatica.h"
+include "pila_estatica.h"
 
 
 
@@ -11,11 +11,28 @@
 
 */
 
+///auxiliar
+unsigned minimo(unsigned tamanio_dato, unsigned tamInfo)
+{
+    // esta funcion se la considera una protecion
+    // usa el mas pequeño entre tamanio_dato y tamInfo
+    // Sin en la pila estuviese guardado un dato 5 bytes y se pasa tamanio_dato = 6, romperia
+    // si se le paso el dato, que se joda por pasar mal el dato, pero la pila da lo que tiene
+    // no le veo sentido igual porque no se modifica nada en la funcion ver_tope, pero no molesta
+
+    return (tamanio_dato<tamInfo?tamanio_dato:tamInfo);
+}
+
+
 void crear(tPila *p)
 {
     p->tope = MAX;
 }
 
+void vaciar(tPila *p)
+{
+    p->tope = MAX;
+}
 
 int llena(const tPila *p, unsigned tamanio_dato)
 {
@@ -23,6 +40,13 @@ int llena(const tPila *p, unsigned tamanio_dato)
     // p->tope es el espacio libre en la pila
     // si es 1, no hay lugar
     return p->tope < tamanio_dato + sizeof(unsigned);
+}
+
+
+int vacia(const tPila *p)
+{
+    // si tope es igual a MAX, es porque no tiene nada
+    return p->tope==MAX;
 }
 
 
@@ -55,6 +79,33 @@ int poner(tPila *p, void *dato, unsigned tamanio_dato)
     // p->pila + p->tope guardara el lugar en memoria donde se mete el dato y el tamaño del dato
 
     return 0;
+}
+
+
+
+int sacar(tPila *p, void *dato, unsigned tamanio_dato)
+{
+    unsigned tamInfo;
+
+    //comprobar que no este vacio
+    if(p->tope == MAX)
+        return 0;
+
+    // guardar el tamaño del dato
+    memcpy(&tamInfo, p->pila+p->tope, sizeof(unsigned));
+
+    // mover el puntero hasta donde empieza el dato en la pila
+    p->tope = sizeof(unsigned);
+
+    // copiar en dato lo que hay en memoria desde la posicion de memoria que hay en p->pila sumada a la "posicion" en memoria de p->tope
+    // minimo es metodo de seguridad para no romper los datos en pila que no se deberian tocar
+    memcpy(&dato, p->pila+p->tope, minimo((tamInfo, tamanio_dato)));
+
+    // se posiona p->tope donde termina el dato que sacamos, asi queda libre esa parte
+    p->tope = p->topetamInfo;
+
+
+    return 1;
 }
 
 
