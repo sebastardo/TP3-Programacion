@@ -10,6 +10,6 @@ typedef struct
 }tPila;
 
 void crear(tPila *);
-
+int poner(tPila *, void *, unsigned);
 
 #endif // PILA_ESTATICA_H_INCLUDED

@@ -2,6 +2,6 @@
 #define CABECERA_H_INCLUDED
 #include <stdio.h>
 #include <stdlib.h>
-#define TAM 345
+#define MAX 345
 
 #endif // CABECERA_H_INCLUDED
