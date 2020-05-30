@@ -93,15 +93,14 @@ int sacar(tPila *p, void *dato, unsigned tamanio_dato)
     memcpy(&tamInfo, p->pila+p->tope, sizeof(unsigned));
 
     // mover el puntero hasta donde empieza el dato en la pila
-    p->tope = sizeof(unsigned);
+    p->tope += sizeof(unsigned);
 
     // copiar en dato lo que hay en memoria desde la posicion de memoria que hay en p->pila sumada a la "posicion" en memoria de p->tope
     // minimo es metodo de seguridad para no romper los datos en pila que no se deberian tocar
-    memcpy(&dato, p->pila+p->tope, minimo((tamInfo, tamanio_dato)));
+    memcpy(dato, p->pila+p->tope, minimo(tamInfo, tamanio_dato));
 
     // se posiona p->tope donde termina el dato que sacamos, asi queda libre esa parte
-    p->tope = p->topetamInfo;
-
+    p->tope += tamInfo;
 
     return 1;
 }
