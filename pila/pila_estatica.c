@@ -14,7 +14,7 @@
 ///auxiliar
 unsigned minimo(unsigned tamanio_dato, unsigned tamInfo)
 {
-    // esta funcion se la considera una protecion
+    // esta funcion se la considera una proteccion
     // usa el mas pequeño entre tamanio_dato y tamInfo
     // Sin en la pila estuviese guardado un dato 5 bytes y se pasa tamanio_dato = 6, romperia
     // si se le paso el dato, que se joda por pasar mal el dato, pero la pila da lo que tiene
@@ -125,28 +125,3 @@ int ver_tope_de_pila(const tPila *p, void *dato, unsigned tamanio_dato)
 
     return 1;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
