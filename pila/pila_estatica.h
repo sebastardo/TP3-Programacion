@@ -2,26 +2,24 @@
 #define PILA_ESTATICA_H_INCLUDED
 #include "../cabecera.h"
 
-
 typedef struct
 {
-    char pila[TAM];
+    char pila[MAX_RESULTADO];
     unsigned tope;
 }tPila;
 
-// auxiliar para seguridad, no es parte de la pila
 unsigned minimo(unsigned, unsigned);
 
-// primitivas
-void crear(tPila *);
-void vaciar(tPila *);
+void crear_pila(tPila *);
+void vaciar_pila(tPila *);
 
-int llena(const tPila *, unsigned);
-int vacia(const tPila *);
+int pila_llena(const tPila *, unsigned);
+int pila_vacia(const tPila *);
 
-int poner(tPila *, void *, unsigned);
-int sacar(tPila *, void *, unsigned);
+int poner_en_pila(tPila *, void *, unsigned);
+int sacar_de_pila(tPila *, void *, unsigned);
 
-int ver_tope(const tPila *, void *, unsigned);
+int ver_tope_de_pila(const tPila *, void *, unsigned);
+
 
 #endif // PILA_ESTATICA_H_INCLUDED
