@@ -71,14 +71,12 @@ int poner(tPila *p, void *dato, unsigned tamanio_dato)
     // en 286 se guara el tipo de dato que es el dato guardado de 290 a 300
     // p->tope vale 286
     p->tope-=sizeof(unsigned);
-    memcpy(p->pila+p->tope, tamanio_dato, sizeof(unsigned));
-
-
+    memcpy(p->pila+p->tope, &tamanio_dato, sizeof(unsigned));
 
     // p->pila guarda el lugar en memoria de la pila
     // p->pila + p->tope guardara el lugar en memoria donde se mete el dato y el tamaño del dato
 
-    return 0;
+    return 1;
 }
 
 

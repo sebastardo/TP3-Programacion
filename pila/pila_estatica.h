@@ -5,7 +5,7 @@
 
 typedef struct
 {
-    char dato[TAM];
+    char pila[TAM];
     unsigned tope;
 }tPila;
 
